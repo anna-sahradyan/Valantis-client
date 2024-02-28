@@ -4,7 +4,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { logOutAsyncThunk } from '../../redux/features/authSlice'
 import { useNavigate } from 'react-router'
 import { useDispatch } from 'react-redux'
-const MoreVertComponent = ({user}) => {
+const MoreVertComponent = ({user,updateUserName}) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -19,6 +19,7 @@ const MoreVertComponent = ({user}) => {
     if (selectedOption === 'Log Out') {
       dispatch(logOutAsyncThunk());
       navigate('/');
+      updateUserName(null)
     }
     if (selectedOption === 'Log In') {
       navigate('/auth')

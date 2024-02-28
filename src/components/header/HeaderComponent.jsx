@@ -29,7 +29,9 @@ import { IoSearch } from 'react-icons/io5'
 import MoreVertComponent from './MoreVertComponent'
 
 const HeaderComponent = () => {
-  const user = localStorage.getItem('user')
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
+  const userName = user ? user.result.name : null;
+  console.log(userName)
   const [anchorEl, setAnchorEl] = React.useState(null)
   const [isPopoverOpen, setIsPopoverOpen] = useState(false)
   const [searchPopoverOpen, setSearchPopoverOpen] = useState(false)
@@ -41,6 +43,9 @@ const HeaderComponent = () => {
     setAnchorEl(event.currentTarget)
     setSearchPopoverOpen(!searchPopoverOpen)
   }
+  const updateUserName = (newUserName) => {
+    setUser(newUserName);
+  };
   const handleClose = () => {
     setAnchorEl(null)
     setIsPopoverOpen(false)
@@ -61,17 +66,17 @@ const HeaderComponent = () => {
           </Logo>
         </Top>
         <Auth>
-          {user ?
+          {!user ?
             <Link to="/auth">
               <SpanIcon><FaSignInAlt size={20} /></SpanIcon>
-              Sign In
+               Sign Up
             </Link> :
             <Link to="/auth">
-              <SpanIcon><SiGnuprivacyguard size={20} /></SpanIcon>
-              Sign Up
+              <SpanIcon>{userName}</SpanIcon>
+
             </Link>
           }
-          <MoreVertComponent user={user}/>
+          <MoreVertComponent user={user} updateUserName={updateUserName} />
         </Auth>
       </DivTop>
       <StyledDivider />
