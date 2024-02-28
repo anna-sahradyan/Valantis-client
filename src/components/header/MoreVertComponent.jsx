@@ -16,7 +16,7 @@ const MoreVertComponent = ({user}) => {
   const ITEM_HEIGHT = 48;
   const handleClose = (selectedOption) => {
     setAnchorEl(null);
-    if (selectedOption === 'LogOut') {
+    if (selectedOption === 'Log Out') {
       dispatch(logOutAsyncThunk());
       navigate('/');
     }
