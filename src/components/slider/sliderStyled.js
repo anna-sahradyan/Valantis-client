@@ -22,5 +22,8 @@ export const Prev = styled.img`
 
 export const SliderItem = styled.div`
   width: 100%;
-  height: 400px;
+  height: 460px;
 `;
+export const Img =styled.img`
+  
+`

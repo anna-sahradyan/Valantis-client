@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
-import { CustomDot, Next, Prev, SliderItem, TopSlider } from './sliderStyled';
+import { CustomDot, Img, Next, Prev, SliderItem, TopSlider } from './sliderStyled'
 import { imagesLink } from '../../imagesLink';
 import { StyleSheetManager } from 'styled-components'
 
@@ -43,7 +43,7 @@ const SliderComponent = () => {
             {imagesLink.map((item, index) => {
               return (
                 <SliderItem key={index}>
-                  <img src={item} alt={`Slide ${index + 1}`} />
+                  <Img src={item} alt={`Slide ${index + 1}`} />
                 </SliderItem>
               );
             })}
